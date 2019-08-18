@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+			<meta charset="UTF-8">
+				<title></title>
+	</head>
+	<body>
+		<h1> All current MQTT messages (refresh for more) </h1> 
+		{% for topic, payload in message_tuples %}
+		<p> <h2> new message on topic : {{topic}} payload : {{payload}} </h2> </p>
+		{% endfor %}
+	</body>
+</html>
