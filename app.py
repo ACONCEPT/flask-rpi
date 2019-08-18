@@ -4,14 +4,12 @@ import copy
 
 from flask import Flask, render_template
 from flask_mqtt import Mqtt
-from flask_socketio import SocketIO
 from flask_bootstrap import Bootstrap
 from config import set_mqtt_config
 
 app = Flask(__name__)
 set_mqtt_config(app)
 mqtt = Mqtt(app)
-socketio = SocketIO(app)
 bootstrap = Bootstrap(app)
 
 class MqttDashboardServer(object):
@@ -67,4 +65,4 @@ def dashboard():
 
 if __name__ == "__main__":
     port = int(os.environ.get("FLASK_PORT", 5000))
-    socketio.run(app, host='0.0.0.0', port=port, use_reloader=False, debug=True)
+    app.run(host='localhost',port=port)
